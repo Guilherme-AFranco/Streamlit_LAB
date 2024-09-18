@@ -20,7 +20,7 @@ def insert_calibration(file_path):
     lista_tdms = absoluteFilePaths(file_path)
     calibrations_dict_path = dict_por_espessura(lista_tdms)
     #display(calibrations_dict_path)
-    
+
     lista_medias_por_espessura = []
 
     lista_varcalib = []
@@ -28,12 +28,13 @@ def insert_calibration(file_path):
     for elements in calibrations_dict_path:
         lista_df = calibrations_tdsm(calibrations_dict_path[elements])
         lista_varcalib.append(lista_df)
-    
+
     #Criar um with pra cada um
     with connection:
         for index, valor in enumerate(calibrations_dict_path):
             for k, l in enumerate(calibrations_dict_path[valor]):
                 table_name = f'{valor}_{calibrations_dict_path[valor][k][-7:-5]}'
+                st.write(table_name)
                 with connection.cursor() as cursor:
                     sql = (
                         f'CREATE TABLE IF NOT EXISTS {table_name} ('
@@ -47,7 +48,6 @@ def insert_calibration(file_path):
                     )
                     cursor.execute(sql)
                 connection.commit()
-        st.write("Nome(s) da(s) tabela(s) gerada(s)")
 
         for index, valor in enumerate(calibrations_dict_path):
             for k, l in enumerate(calibrations_dict_path[valor]):
