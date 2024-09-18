@@ -425,7 +425,7 @@ elif page == "Pós Calibração":
 
     if st.session_state.fr_all:
         fr_min, fr_max = min_max(st.session_state.fr_all)
-    fr_max = 425
+    fr_max = 800
 
     col1, col2, col3 = st.columns(3)
 
