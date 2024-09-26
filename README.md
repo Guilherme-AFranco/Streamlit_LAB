@@ -46,6 +46,12 @@
 - No terminal, execute "docker-compose up -d" para criação do Container que será utilizado.
 - Para isso, é necessário que o arquivo `docker-compose.yml` esteja na pasta em que se está com o terminal aberto.
 
+### Criação do atalho para abertura
+- Na área de trabalho, clique com o botão direito do mouse.
+- Novo
+- Atalho
+- Insira o seguinte comando: `powershell.exe -ExecutionPolicy Bypass -File "C:\caminho\para\seu\script\iniciar_streamlit.ps1"`
+
 ### Abertura do Dashboard
 - Com toda a configuração realizada, basta abrir o terminal na pasta onde os arquivos estão alocados e digitar o comando "streamlit run Planar.py".
 - Note que Planar.py pode estar com nomes semelhantes a depender da versão final que foi criada. Até o momento estou utilizando a versão `Planar-v4.py`, então o código usado seria "streamlit run Planar-v4.py".
