@@ -30,6 +30,7 @@ user=os.environ['MYSQL_USER']
 password=os.environ['MYSQL_PASSWORD']
 database=os.environ['MYSQL_DATABASE']
 port=int(os.environ['MYSQL_PORT'])
+cont_ID=os.environ['MYSQL_ID']
 
 # String de conexão
 connection_string = f'mysql+pymysql://{user}:{password}@{host}:{port}/{database}'
@@ -90,8 +91,14 @@ page = st.sidebar.radio(
 # Separando os itens do menu com uma linha divisória
 st.sidebar.markdown("---")
 
-# Exibindo uma descrição visualmente interessante com Markdown e emojis
-st.sidebar.markdown("**⚡ Dica**: Use o menu para navegar entre as funcionalidades.")
+# Botão de saída
+if st.sidebar.button('Exit'):
+    # Comando para pausar/parar o container Docker (substitua '<container_id>' pelo seu container)
+    os.system(f'docker stop {cont_ID}')
+    
+    # Fecha o Streamlit
+    st.write("Aplicativo está sendo fechado...")
+    os._exit(0)  # Finaliza o Streamlit
 
 # # Criação de um seletor na barra lateral
 #     page = st.sidebar.radio(
