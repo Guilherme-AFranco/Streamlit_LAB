@@ -30,7 +30,7 @@ $form.Controls.Add($checkbox1)
 
 # Cria uma caixa de seleção para o container 2
 $checkbox2 = New-Object System.Windows.Forms.CheckBox
-$checkbox2.Text = "Desktop LEMI (4fg)"
+$checkbox2.Text = "Desktop LEMI (7b9)"
 $checkbox2.Font = New-Object System.Drawing.Font("Arial", 10)
 $checkbox2.AutoSize = $true  # Ajusta o tamanho automaticamente
 $checkbox2.Location = New-Object System.Drawing.Point(30, 100)
@@ -79,11 +79,11 @@ $buttonStart.Add_Click({
         }
     }
     elseif ($checkbox2.Checked) {
-        $status = Get-ContainerStatus "4fg849564j8s"
+        $status = Get-ContainerStatus "7b93b527d02e"
         if ($status -eq "paused") {
-            Start-Process "docker" -ArgumentList "unpause 4fg849564j8s"
+            Start-Process "docker" -ArgumentList "unpause 7b93b527d02e"
         } elseif ($status -eq "exited" -or $status -eq "created") {
-            Start-Process "docker" -ArgumentList "start 4fg849564j8s"
+            Start-Process "docker" -ArgumentList "start 7b93b527d02e"
         }
     } else {
         [System.Windows.Forms.MessageBox]::Show("Por favor, selecione um container.")
@@ -92,8 +92,8 @@ $buttonStart.Add_Click({
 
     # Ativa o ambiente virtual e roda o Streamlit em segundo plano
     # Ativa o ambiente virtual
-        Set-Location -Path "E:\TCC\1sem-2024\Estudo_Streamlit"  # Altere para o caminho correto da sua pasta
-        .\venv_Steamlit\Scripts\Activate
+        Set-Location -Path "E:\Planar_Dashboard\Streamlit-Planar"  # Altere para o caminho correto da sua pasta
+        .\venv\Scripts\Activate
 
         # Roda o Streamlit
         streamlit run Planar-v4.py
@@ -110,7 +110,7 @@ $buttonExit.Add_Click({
         Start-Process "docker" -ArgumentList "pause 6df053478b9e"
     }
     elseif ($checkbox2.Checked) {
-        Start-Process "docker" -ArgumentList "pause 4fg849564j8s"
+        Start-Process "docker" -ArgumentList "pause 7b93b527d02e"
     }
 
     # Fecha o formulário
