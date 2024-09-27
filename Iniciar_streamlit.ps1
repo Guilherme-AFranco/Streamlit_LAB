@@ -67,7 +67,7 @@ function Get-ContainerStatus {
 $buttonStart.Add_Click({
     Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
     
-    Start-Sleep -Seconds 15  # Aguarda o Docker Desktop iniciar
+    Start-Sleep -Seconds 20  # Aguarda o Docker Desktop iniciar
 
     # Inicializa o container escolhido em segundo plano
     if ($checkbox1.Checked) {

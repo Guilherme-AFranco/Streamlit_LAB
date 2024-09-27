@@ -111,7 +111,7 @@ if page == "📂 Inclusão/Exclusão de arquivos":
     cols = st.columns(3)
     with cols[0]:
         # Caixa de entrada para o caminho da pasta
-        folder_path = st.text_input("Digite o caminho para inserir os arquivos (ex.: E:\Planar\Calib):")
+        folder_path = st.text_input("Digite o caminho para inserir os arquivos (ex.: E:\\Planar\\Calib):")
 
         # Verifica se um caminho de pasta foi fornecido
         if folder_path:
